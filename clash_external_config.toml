@@ -1,0 +1,43 @@
+version = 1
+custom_proxy_group = AI解锁`select`[]美国节点`[]日本节点
+custom_proxy_group = 自动选择`url-test`.*`http://www.gstatic.com/generate_204`300,5,100
+custom_proxy_group = 节点选择`select`[]自动选择`[]香港节点`[]美国节点`[]日本节点`.*`[]DIRECT
+custom_proxy_group = 香港节点`url-test`(香港|HK|hk)`http://www.gstatic.com/generate_204`300,5,100
+custom_proxy_group = 美国节点`url-test`(美国|US|us)`http://www.gstatic.com/generate_204`300,5,100
+custom_proxy_group = 日本节点`url-test`(日本|JP|jp)`http://www.gstatic.com/generate_204`300,5,100
+# custom_proxy_group = 全球直连`select`[]DIRECT
+# custom_proxy_group = 全球拦截`select`[]REJECT
+custom_proxy_group = 漏网之鱼`select`[]DIRECT`[]节点选择`[]自动选择`[]香港节点`.*
+# 广告封锁 (全面替代 category-ads-all)
+ruleset=REJECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising.list
+# 局域网与直连 (全面替代 private)
+ruleset=DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.list
+#ruleset=全球直连,rules/direct_custom.list
+# Ai解锁 (独立分流，确保100%命中AI策略组)
+ruleset=AI解锁,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
+ruleset=AI解锁,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list
+ruleset=AI解锁,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list
+ruleset=AI解锁,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.list
+# 常用服务精准分流 (替代旧配置中零碎的 GEOIP / GEOSITE)
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.list
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.list
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WhatsApp/WhatsApp.list
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Binance/Binance.list
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.list
+# 全球代理解析集 (超级合集，完美替代 GFW、CDN、TLD-!CN 等所有未被上述规则覆盖的外网域名)
+ruleset=节点选择,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.list
+# Proxy Domain
+#ruleset=节点选择,rules/proxy_custom.list
+# 中国大陆IP及域名直连 (包含大陆域名与大陆IP段，全面替代 GEOIP,CN)
+ruleset=DIRECT,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax.list
+# 漏网之鱼 (Final Fallback)
+ruleset=漏网之鱼,[]MATCH
+overwrite_original_rules = true
+enable_rule_generator = true
+exclude_remarks =(更新|重置|到期|剩余|流量|时间|官网|产品)
