@@ -35,6 +35,7 @@ custom_proxy_group=测速工具`select`[]DIRECT`[]手动选择`[]自动选择`[]
 custom_proxy_group=漏网之鱼`select`[]DIRECT`[]手动选择`[]自动选择`[]香港节点`[]美国节点`[]日本节点`[]新加坡节点`[]台湾节点`[]韩国节点`.*
 custom_proxy_group=非标端口`select`[]漏网之鱼`[]DIRECT
 
+ruleset=巴西节点,[]DOMAIN-SUFFIX,br
 # 广告封锁
 ruleset=REJECT,[]GEOSITE,category-ads-all
 # 局域网与直连
@@ -97,8 +98,6 @@ ruleset=DIRECT,[]GEOIP,cn,no-resolve
 ;以上兜底规则会根据实际情况随时取消
 ;PT/BT 优化开启会使 80/443 以外端口的流量直连
 ruleset=非标端口,clash-classic:https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Port_Direct.yaml,28800
-
-ruleset=巴西节点,[]DOMAIN-SUFFIX,br
 ;国内冷门域名会命中漏网之鱼，如影响使用，请设置漏网之鱼直连
 ;漏网之鱼直连时，无法通过 DNS 泄露测试，但是并不存在泄露
 ruleset=漏网之鱼,[]MATCH
