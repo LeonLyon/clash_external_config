@@ -1,4 +1,5 @@
 [custom]
+custom_proxy_group = 基础通用规则`select`[]自动选择`[]手动选择`[]香港节点`[]美国节点`[]日本节点`.*`[]DIRECT
 custom_proxy_group = AI解锁`select`[]手动选择`[]自动选择`[]香港节点`[]美国节点`[]日本节点`[]新加坡节点`[]台湾节点`[]韩国节点`[]DIRECT`.*`
 custom_proxy_group = 自动选择`url-test`.*`http://www.gstatic.com/generate_204`300,5,100
 custom_proxy_group = 手动选择`select`[]自动选择`[]香港节点`[]美国节点`[]日本节点`.*`[]DIRECT
@@ -50,8 +51,8 @@ ruleset=DIRECT,[]GEOIP,private,no-resolve
 ruleset=DIRECT,clash-domain:https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_Domain.yaml,28800
 ruleset=DIRECT,clash-classic:https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_Classical_IP.yaml,28800
 # 本项目收录的代理规则
-ruleset=手动选择,clash-domain:https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_Domain.yaml,28800
-ruleset=手动选择,clash-classic:https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_Classical_IP.yaml,28800
+ruleset=基础通用规则,clash-domain:https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_Domain.yaml,28800
+ruleset=基础通用规则,clash-classic:https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_Classical_IP.yaml,28800
 # 谷歌在国内可用的域名直连
 # ruleset=DIRECT,[]GEOSITE,google-cn
 # 国内游戏域名直连
@@ -89,7 +90,7 @@ ruleset=Spotify,[]GEOSITE,spotify
 ruleset=游戏平台,[]GEOSITE,category-games
 ruleset=国外媒体,[]GEOSITE,category-entertainment
 ruleset=国外电商,[]GEOSITE,category-ecommerce
-ruleset=手动选择,[]GEOSITE,gfw
+ruleset=基础通用规则,[]GEOSITE,gfw
 ruleset=即时通讯,[]GEOIP,telegram,no-resolve
 ruleset=社交媒体,[]GEOIP,twitter,no-resolve
 ruleset=社交媒体,[]GEOIP,facebook,no-resolve
